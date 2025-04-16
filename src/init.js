@@ -1,1 +1,4 @@
-import data from './data.js';
+import {eventClick, eventKey} from './events/clickEvent.js';
+
+eventClick();
+eventKey();

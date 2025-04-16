@@ -1,3 +1,6 @@
-const data = {};
+
+const data = {
+    chars: {}
+};
 
 export default data;
