@@ -6,6 +6,10 @@ import { getData } from "../api.js";
 const clickHandler = async () => {
     const id = document.getElementById('input');
     console.log(typeof id.value);
+    const ifExist = document.getElementById('poke-box');
+    if (ifExist) {
+      ifExist.remove();
+    }
     if (isNaN(Number(id.value)) || Number(id.value) === 0) {
       const warning = document.createElement('h1');
       warning.setAttribute('id', 'poke-box');
@@ -13,10 +17,6 @@ const clickHandler = async () => {
       document.body.append(warning);
     } else {
       const res = await getData(id.value);
-      const ifExist = document.getElementById('poke-box');
-      if (ifExist) {
-        ifExist.remove();
-      }
       if (!(res.id in data.chars)) {
         data.chars[res.id] = res;
         dom.box[res.id] = pokeBox(
